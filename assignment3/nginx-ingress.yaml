@@ -4,15 +4,17 @@ metadata:
   name: nginx-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
+  labels:
+    app: nginx
 
 spec:
   rules:
   - http:
       paths:
-      - path: /nginx
+      - path: /
         pathType: Prefix
         backend:
           service:
             name: nginx-svc
             port:
-              number: 8080
+              number: 80
